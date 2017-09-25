@@ -1,9 +1,9 @@
 const css = require('./style/main.scss');
+const cowsay = require('cowsay');
+const faker = require('faker');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import cowsay from 'cowsay';
-import faker from 'faker';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,9 +16,16 @@ class App extends React.Component {
 
   handleClick(e) {
     console.log(`click on ${e.target}`);
+    var text = faker.lorem.paragraph();
+    var cowy = cowsay.say({
+      text : text,
+      e : 'oO',
+      T : 'U'
+    });
+    console.log(cowy);
     this.setState(state =>{
       console.log(state);
-      return {content: 'After a CLICK'};
+      return {content: cowy};
     });
   }
 
@@ -26,7 +33,7 @@ class App extends React.Component {
     return(
       <div>
         <button onClick={this.handleClick} type="button">Click Me!</button>
-        <p>{this.state.content}</p>
+        <pre>{this.state.content}</pre>
       </div>
     );
   }
@@ -36,3 +43,6 @@ ReactDOM.render(
   <App />,
   document.getElementById('cowStuff')
 );
+
+
+console.log(css,App);
