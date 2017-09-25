@@ -11,10 +11,16 @@ class App extends React.Component {
     this.state = {
       content: 'I am the state'
     };
-
+    this.handleClick = this.handleClick.bind(this);
   }
 
-
+  handleClick(e) {
+    console.log(`click on ${e.target}`);
+    this.setState(state =>{
+      console.log(state);
+      return {content: 'After a CLICK'};
+    });
+  }
 
   render(){
     return(
