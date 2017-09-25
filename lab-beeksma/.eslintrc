@@ -10,12 +10,14 @@
     "es6": true,
     "node": true,
     "mocha": true,
-    "jasmine": true
+    "browser": true
   },
 
   "parserOptions":{
+    "sourceType": "module",
     "ecmaFeatures": {
       "modules": true,
+      "jsx": true,
       "experimentalObjectRestSpread": true,
       "impliedStrict": true
     }
